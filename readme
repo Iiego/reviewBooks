@@ -1,0 +1,57 @@
+Objetivo-Criar uma aplicação onde os ususarios registrados poderão dar nota sobre livros
+
+sera usado a api de google books
+
+api key google books= AIzaSyDAM-zK92WV8r4Dwcky-7RgNGZh9Mj91Rs
+
+
+database :
+
+Create table users (
+	id INT auto_increment primary key,
+    email varchar(100),
+    username varchar(50) not null unique,
+    password varchar(50) not null
+);~
+
+create table review(
+	id int auto_increment primary key,
+    book_id int not null,
+    user_id int,
+    score TINYINT CHECK (score BETWEEN 0 AND 5),
+    foreign key (user_id) references users(id),
+    comment varchar(1000)
+    
+);
+
+todos os book_id eu vou pegar pela api do google books
+
+
+
+   backend:
+o q esta feito:
+registro de usuario
+login de usuario
+middleware
+a busca pelos livros
+o review dos livros
+a alteração dos reviews
+a busca de todos os reviews de um unico usuario
+
+o que a de fazer :
+
+alterar o banco:
+o id do livro n pode ser nulo
+talvez ????:colocar uma coluna de comentarios no review e fazer dos comentarios algo que se faz em reviews de outros usuarios 
+
+rotas, controlers:
+
+coleta dos reviews e dos comentarios de um livro especifico
+criação do comentario e alteração do comentario.
+
+front end:
+tela de login
+tela de cadastro
+tela incial(n precisa estar logado)
+tela de detalhes do livro (com comentarios e reviews)
+tela de perfil (com reviews e comentarios feitos pelo usuario)
