@@ -20,11 +20,30 @@ exports.search = async (req, res) => {
 };
 
 exports.getAllReviews = async (req, res) => {
-  try{
+  try {
     const bookId = req.body
 
     database.query("SELECT id, score, user_id FROM review WHERE book_id = ?",
-      [bookId]
+      [bookId],
+      (err, results) => {
+        if (err) {
+          console.error("Erro no banco:", err);
+          return res.status(500).json({
+            message: "Erro ao buscar avaliações",
+            error: err.sqlMessage,
+          });
+        }
+
+        const message =
+          results.affectedRows === 2
+            ? "Avaliação do livro puxada com sucesso!"
+            : "Nenhuma avaliação encontrada para este livro";
+
+        res.status(201).json({
+          message,
+          reviewId: results.insertId || 0,
+        });
+      }
     )
-  }catch(err){}
+  } catch (err) { }
 }
