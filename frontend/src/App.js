@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import React, { useState } from 'react';
-import primaryPage from './routes/primaryPage/index';
+import Primarypage from './routes/primaryPage';
 
 function App() {
 
@@ -8,8 +8,8 @@ function App() {
     <div className="App">
       <Router>
       <Routes>
-        <Route path="/" element={<primaryPage />} />
-        <Route path="/search" element={< search />} />
+        <Route path="/" element={<Primarypage />}/>
+        <Route path="/search" element={<search />} />
       </Routes>
     </Router>
     </div>

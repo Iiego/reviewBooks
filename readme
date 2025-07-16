@@ -37,11 +37,8 @@ o review dos livros
 a alteração dos reviews
 a busca de todos os reviews de um unico usuario
 
-o que a de fazer :
 
-alterar o banco:
-o id do livro n pode ser nulo
-talvez ????:colocar uma coluna de comentarios no review e fazer dos comentarios algo que se faz em reviews de outros usuarios 
+o que a de fazer :
 
 rotas, controlers:
 
